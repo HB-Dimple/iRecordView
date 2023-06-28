@@ -156,17 +156,18 @@ public class RecordView: UIView, CAAnimationDelegate {
     //this will be called when user starts tapping the button
     private func onStart(recordButton: RecordButton) {
         isSwiped = false
-
+        
         self.prepareToStartRecording(recordButton: recordButton)
-
+        
         if isSoundEnabled {
             audioPlayer.playAudioFile(soundType: .start)
             audioPlayer.didFinishPlaying = { [weak self] _ in
-                self?.delegate?.onStart()
+                //                self?.delegate?.onStart()
             }
-        } else {
-            delegate?.onStart()
         }
+        //        else {
+        delegate?.onStart()
+        //        }
     }
     
     private func prepareToStartRecording(recordButton: RecordButton) {
